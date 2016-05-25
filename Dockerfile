@@ -10,9 +10,9 @@ RUN apt-get -y -qq update && apt-get -y -qq install \
 
 ADD testsuite.py /root/
 ADD index.html /usr/share/nginx/html/
-ADD css /usr/share/nginx/html/
-ADD images /usr/share/nginx/html/
-ADD js /usr/share/nginx/html/
+ADD css /usr/share/nginx/html/css
+ADD images /usr/share/nginx/html/images
+ADD js /usr/share/nginx/html/js
 
 RUN chmod 755 /root/testsuite.py
 #RUN /root/testsuite.py fail
