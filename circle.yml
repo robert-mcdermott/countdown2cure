@@ -1,0 +1,22 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t mcdermott/countdown2cure:$CIRCLE_SHA1 .
+
+test:
+  override:
+    - docker run -d -p 80:80 --name countdown2cure-$CIRCLE_SHA1 mcdermott/countdown2cure:$CIRCLE_SHA1; sleep 10
+    - curl --retry 10 --retry-delay 5 -v http://localhost:80
+    - sudo lxc-attach -n "$(docker inspect --format '{{.Id}}' countdown2cure-$CIRCLE_SHA1)" -- bash -c "/root/testsuite.py pass"
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - docker tag mcdermott/countdown2cure:$CIRCLE_SHA1 mcdermott/countdown2cure:latest
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push mcdermott/countdown2cure:latest; sleep 10
+      - curl -X POST $DEPLOY_COUNTDOWN2CURE
