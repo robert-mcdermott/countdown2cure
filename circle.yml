@@ -19,4 +19,4 @@ deployment:
       - docker tag mcdermott/countdown2cure:$CIRCLE_SHA1 mcdermott/countdown2cure:latest
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push mcdermott/countdown2cure:latest; sleep 10
-      - curl -X POST $DEPLOY_COUNTDOWN2CURE
+      #- curl -X POST $DEPLOY_COUNTDOWN2CURE
