@@ -24,4 +24,15 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+          deleteDir()
+        }
+        success {
+            mail to:"rmcdermo@fredhutch.org", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
+        }
+        failure {
+            mail to:"rmcdermo@fredhutch.org", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
+        }
+    }
 }
