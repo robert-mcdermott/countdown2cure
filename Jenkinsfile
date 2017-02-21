@@ -1,7 +1,24 @@
-node {
-   echo 'Hello World'
-   checkout scm
-   sh 'pwd'
-   sh 'ls -lh'
-   sh 'df -h'
+pipeline {
+    agent label 'master'
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                checkout scm
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'pwd'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                sh 'ls -lh'
+            }
+        }
+    }
 }
