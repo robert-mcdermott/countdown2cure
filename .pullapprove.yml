@@ -1,11 +1,6 @@
 version: 2
 # === GitHub username to full name map ===
 # robert-mcdermott - Robert McDermott - Scicomp Solutions Architect
-# gmcghie - Glen McGhie - HDC Software Engineering
-# sbikkani - Sindhura Bikkani - HDC Software Engineering
-# dirkpetersen - Dirk Petersen - SciComp Director
-# ryanjm1 - James Ryan - HDC Director
-# jstnblau - Justin Blau - CIT System Engineering - System Administrator
 
 # Group settings to apply to all groups by default, optionally being overridden later
 group_defaults:
@@ -28,9 +23,7 @@ groups:
       enabled: true
     users:
       - robert-mcdermott
-      - gmcghie
-      - tturpeni
-      - jstnblau
+
 
   security:
     required: 0
@@ -38,7 +31,7 @@ groups:
     reset_on_push:
       enabled: false
     users:
-      - dirkpetersen
+      - robert-mcdermott
 
   managment:
       required: 0
@@ -46,4 +39,4 @@ groups:
       reset_on_push:
         enabled: false
       users:
-        - ryanjm1
+        - robert-mcdermott
