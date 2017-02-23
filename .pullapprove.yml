@@ -1,12 +1,49 @@
 version: 2
+# === GitHub username to full name map ===
+# robert-mcdermott - Robert McDermott - Scicomp Solutions Architect
+# gmcghie - Glen McGhie - HDC Software Engineering
+# sbikkani - Sindhura Bikkani - HDC Software Engineering
+# dirkpetersen - Dirk Petersen - SciComp Director
+# ryanjm1 - James Ryan - HDC Director
+# jstnblau - Justin Blau - CIT System Engineering - System Administrator
+
+# Group settings to apply to all groups by default, optionally being overridden later
+group_defaults:
+  approve_by_comment:
+    enabled: true
+    approve_regex: ^Approved
+    reject_regex: ^Rejected
+  conditions:
+    branches:
+      - master  # this group only reviews when PR is merging into master
+    files:
+      exclude:
+        - '*.md'
+
 groups:
-  code-review:
-    approve_by_comment:
-      approve_regex: ^Approved
-      enabled: true
-      reject_regex: ^Rejected
+  devops:
     required: 1
+    reject_value: -2
+    reset_on_push:
+    enabled: true
+    users:
+      - robert-mcdermott
+      - gmcghie
+      - tturpeni
+      - jstnblau
+
+  security:
+    required: 0
+    reject_value: -100
     reset_on_push:
       enabled: false
     users:
-    - robert-mcdermott
+      - dirkpetersen
+
+  managment:
+      required: 0
+      reject_value: -100
+      reset_on_push:
+      enabled: false
+      users:
+        - ryanjm1
