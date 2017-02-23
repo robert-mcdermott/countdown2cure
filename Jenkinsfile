@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 sh 'figlet Build'
                 checkout scm
-                sh 'docker build -t jenkins/countdown2cure:latest'
+                sh 'docker build -t jenkins/countdown2cure:latest .'
             }
         }
         stage('Test') {
