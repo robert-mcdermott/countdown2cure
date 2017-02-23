@@ -15,8 +15,12 @@ pipeline {
                 echo 'Testing..'
                 sh 'figlet Test'
                 sh 'pwd'
+                echo 'starting container'
                 sh 'docker run -d --name jenkins-test -p 1492:80 jenkins/countdown2cure:latest'
+                echo 'connecting to container'
                 sh 'curl http://localhost:1492'
+                echo 'stopping and removing container'
+                sh 'docker stop jenkins-test && docker rm jenkins-test'
             }
         }
         stage('Deploy') {
