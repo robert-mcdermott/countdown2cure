@@ -21,6 +21,7 @@ pipeline {
                 echo 'Deploying....'
                 sh 'figlet Deploy'
                 sh 'ls -lh'
+                sh 'docker images'
             }
         }
     }
