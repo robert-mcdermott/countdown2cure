@@ -11,8 +11,8 @@ version: 2
 group_defaults:
   approve_by_comment:
     enabled: true
-    approve_regex: ^Approved
-    reject_regex: ^Rejected
+  approve_regex: ^Approved
+  reject_regex: ^Rejected
   conditions:
     branches:
       - master  # this group only reviews when PR is merging into master
@@ -25,7 +25,7 @@ groups:
     required: 1
     reject_value: -2
     reset_on_push:
-    enabled: true
+      enabled: true
     users:
       - robert-mcdermott
       - gmcghie
@@ -44,6 +44,6 @@ groups:
       required: 0
       reject_value: -100
       reset_on_push:
-      enabled: false
+        enabled: false
       users:
         - ryanjm1
