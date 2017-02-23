@@ -7,6 +7,7 @@ pipeline {
                 echo 'Building..'
                 sh 'figlet Build'
                 checkout scm
+                sh 'docker build -t jenkins/countdown2cure:latest'
             }
         }
         stage('Test') {
@@ -14,6 +15,8 @@ pipeline {
                 echo 'Testing..'
                 sh 'figlet Test'
                 sh 'pwd'
+                sh 'docker run -d --name jenkins-test -p 1492:80 jenkins/countdown2cure:latest'
+                sh 'curl http://localhost:1492'
             }
         }
         stage('Deploy') {
