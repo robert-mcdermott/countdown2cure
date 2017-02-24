@@ -6,6 +6,3 @@
 - In addition to the countdown a motivational message is provided.
 
 The website is available (from inside the Hutch network only) at: [http://countdown2cure.fredhutch.center](http://countdown2cure.fredhutch.center)
-
-test
-
