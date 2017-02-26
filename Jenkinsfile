@@ -45,7 +45,7 @@ pipeline {
           steps {
                 sh '''
                 figlet Deploy
-                rancher-compose --project-name countdown2cure --url https://containers.fhcrc.org/v1/projects/1a7  --access-key $RANCHERAPI_USR --secret-key $RANCHERAPI_PSW up -d --pull --force-upgrade --confirm-upgrade
+                rancher-compose --project-name countdown2cure --url https://containers.fhcrc.org/v1/projects/1a7  --access-key $RANCHERAPI_USR --secret-key $RANCHERAPI_PSW up -d --pull --force-upgrade --confirm-upgrade countdown2cure
                 '''
             }
         }
