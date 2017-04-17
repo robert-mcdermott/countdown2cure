@@ -1,5 +1,5 @@
-# Use Ubuntu 14.04 as the base container
-FROM ubuntu:14.04
+# Use Ubuntu 16.04 as the base container
+FROM ubuntu:16.04
 
 MAINTAINER "Robert McDermott" robert.c.mcdermott@gmail.com
 
